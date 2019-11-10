@@ -205,7 +205,7 @@ def enigmator():
         ''')
     choice = input('')
     if choice in ['', '1', 'Play', 'play']:
-        enigma_00()
+        enigma_play()
     elif choice in ['2', 'level', 'Level', 'Show current level']:
         clr()
         print('\tYou are currently at Enigma Level %i.' % player.enigma)
@@ -218,6 +218,16 @@ def enigmator():
         enigma_ultima()
     else:
         start()
+
+
+# which enigma to start; might get messy in the near future
+def enigma_play():
+    if player.enigma == 0:
+        enigma_00()
+    elif player.enigma == 1:
+        enigma_01()
+    else:
+        enigmator()
 
 
 # show the rules of enigmator
@@ -273,6 +283,20 @@ def enigma_00():
         ''')
     choice = input('')
     if choice in ['7', 'Seven', 'seven']:
+        enigma_win()
+    else:
+        enigma_fail()
+
+
+# second enigma; hint: 'Politics. In Spaaace.'
+def enigma_01():
+    clr()
+    print('''
+        In another time, in another galaxy, 
+        how does liberty die?
+        ''')
+    choice = input('')
+    if choice in 'With thunderous applause':
         enigma_win()
     else:
         enigma_fail()
