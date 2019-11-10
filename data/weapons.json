@@ -1,0 +1,22 @@
+{
+ "0": [
+  "Faulty Blaster",
+  10,
+  0
+ ],
+ "1": [
+  "Blaster",
+  20,
+  50
+ ],
+ "2": [
+  "Legendary Blaster",
+  30,
+  150
+ ],
+ "3": [
+  "Destroyer of Worlds",
+  999,
+  999
+ ]
+}
