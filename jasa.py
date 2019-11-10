@@ -200,15 +200,12 @@ def enigmator():
         1: Play
         2: Show current level
         3: Show the rules
-        4: Log off
+        4: Enigma Ultima
+        5: Log off
         ''')
     choice = input('')
     if choice in ['', '1', 'Play', 'play']:
-        clr()
-        print('missing') # to do
-        cont()
-        choice = input('')
-        enigmator()
+        enigma_00()
     elif choice in ['2', 'level', 'Level', 'Show current level']:
         clr()
         print('\tYou are currently at Enigma Level %i.' % player.enigma)
@@ -217,6 +214,8 @@ def enigmator():
         enigmator()
     elif choice in ['3', 'rules', 'Rules', 'Show the rules']:
         enigmator_rules()
+    elif choice in ['4', 'Ultima', 'ultima', 'Enigma Ultima']:
+        enigma_ultima()
     else:
         start()
 
@@ -236,6 +235,65 @@ def enigmator_rules():
         By playing Enigmator you agree to forfeiting your
         right to litigate.
         ''')
+    cont()
+    choice = input('')
+    enigmator()
+
+
+def enigma_ultima():
+    clr()
+    print('''
+        You are about to attempt solving the ultimate Enigma.
+        Please note that once you begin, you will be locked in
+        a cycle of trying to enter the correct answer. 
+        Until you do so, you can not leave.
+
+        Please type 'Ultima' to proceed.
+        ''')
+    choice = input('')
+    if choice == 'Ultima':
+        clr()
+        print('\tMissing.')
+        choice = ''
+        while choice != 'final answer':
+            choice = input('')
+        print('\tWin.')
+        enigmator()
+    else:
+        enigmator()
+
+
+# first enigma; hint: 'Sum... sum... something.'
+def enigma_00():
+    clr()
+    print('''
+        987 --> 6
+        1337 --> 5
+        8080 --> ?
+        ''')
+    choice = input('')
+    if choice in ['7', 'Seven', 'seven']:
+        enigma_win()
+    else:
+        enigma_fail()
+
+
+# correct enigma answer
+def enigma_win():
+    clr()
+    print('\tCorrect answer.')
+    print('\tYou win 5 Credits.') # needs improvement
+    player.credits += 5
+    player.enigma += 1
+    cont()
+    choice = input('')
+    enigmator()
+
+
+# wrong enigma answer
+def enigma_fail():
+    clr()
+    print('\tWrong answer.')
     cont()
     choice = input('')
     enigmator()
