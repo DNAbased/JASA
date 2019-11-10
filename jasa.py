@@ -18,19 +18,19 @@ import json
 
 # dict of possible weapons; put in database and add prefixes/suffixes?
 with open('data/weapons.json', 'r') as json_file:
-	weapons = json.load(json_file)
+    weapons = json.load(json_file)
 weapons = {int(key):value for key, value in weapons.items()}
 
 # dict of enemies
 # use range of numbers to set, which enemies can be fought at the moment, then remove/add numbers to change this?
 with open('data/enemies.json', 'r') as json_file:
-	enemies = json.load(json_file)
+    enemies = json.load(json_file)
 enemies = {int(key):value for key, value in enemies.items()}
 
 # possible rumours; needs formatting; json?
-rumour_list = ['\tDid you know that the Space Ninja Academy has its headquarters on Vome Seven?']
+rumour_list = ['\tDid you know that the Space Ninja Academy\n\thas its headquarters on Vome Seven?\n', '\tTy Corp is harvesting radioactive material\n\tnear Solecerca.\n']
 
-# enigmator; json?
+# enigmator; json? functions?
 enigma = 'to do'
 
 # planets; could probably be put into a dict/json as well --> should make changing the planet easier
@@ -50,7 +50,7 @@ class Char():
         self.exp = 0
         self.lvl = 1
         self.luck = 1
-        self.enigma = 1
+        self.enigma = 0
         self.speed = 1 # not used yet
     @property
     def dmg(self):
@@ -164,7 +164,7 @@ def start():
         9: Quit
         ''' % (player.name, player.hp, player.maxhp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5))
     choice = input('')
-    if choice in ['', '1', 'Fight', 'fight', 'Look for a fight']:
+    if choice in ['1', 'Fight', 'fight', 'Look for a fight']:
         battleprep()
     elif choice in ['2', 'Quests', 'quests', 'Search for quests']:
         quests()
@@ -216,11 +216,18 @@ def enigmator():
         choice = input('')
         enigmator()
     elif choice in ['3', 'rules', 'Rules', 'Show the rules']:
-        clr()
-        print('''
+        enigmator_rules()
+    else:
+        start()
+
+
+# show the rules of enigmator
+def enigmator_rules():
+    clr()
+    print('''
         The rules are simple: you play, you win, you win!
         Solving one level immediately unlocks the next.
-
+        
         Please note that Ty Corp thanks you for playing
         Enigmator. However, Ty Corp can not be held accountable
         for loss of Credits, loss of time, loss of memory, loss
@@ -229,11 +236,9 @@ def enigmator():
         By playing Enigmator you agree to forfeiting your
         right to litigate.
         ''')
-        cont()
-        choice = input('')
-        enigmator()
-    else:
-        start()
+    cont()
+    choice = input('')
+    enigmator()
 
 
 # random rumours
@@ -443,7 +448,6 @@ def battle():
         1: Fight
         2: Use booster
         3. Flee
-        9: Quit
         ''' % (player.hp, player.maxhp, player.boosters, enemy.name, enemy.hp, enemy.maxhp))
     choice = input('')
     if choice in ['', '1', 'Fight', 'fight',]:
@@ -452,8 +456,6 @@ def battle():
         booster()
     elif choice in ['3', 'Flee', 'flee']:
         flee()
-    elif choice in ['9', 'Quit', 'quit']:
-        quitter()
     else:
         clr()
         battle()
@@ -539,9 +541,13 @@ def flee():
         start()
     else:
         print('\tYou could not make it to safety.')
-        # let enemy attack? needs some penalty
+        # let enemy attack? needs some stronger penalty
+        print('\tYour HP have been reduced by 1.\n')
+        player.hp -= 1
         cont()
         choice = input('')
+        if player.hp <= 0:
+            defeat()
         battle()
 
 
