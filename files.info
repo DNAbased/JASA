@@ -1,7 +1,0 @@
-data/weapons.json
-	Key: consecutively numbered, str (converted to int in jasa.py)
-	Values: [Name (str), Damage (int), Price (int)]
-
-data/enemies.json
-	Key: consecutively numbered, str (converted to int in jasa.py)
-	Values: [Name (str), MaxHP (int), Damage (int), Credits (int)]
