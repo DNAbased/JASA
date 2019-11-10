@@ -1,4 +1,4 @@
-# Space action
+# JASA - Just Another Space Adventure
 
 # quests: should be possible to add puzzles etc
 # skills: trick shot; attack with higher accuracy (once accuracy is implemented); double attack; first strike (once speed is implemented)
@@ -7,34 +7,33 @@
 # add different planets? how to travel? how to implement planet check?
 # implement a different way of calculating experience gain
 # difficulty option?
+# save progress? should be sufficient to save the player character; might benefit from obscuring the contents of the (json?) save file
+
 
 # imports
 import sys
 import random
 import json
 
-# save progress? should be sufficient to save the player character; might benefit from obscuring the contents of the (json?) save file
 
-# dict of possible weapons; put in database and add prefixes/suffixes? [name, dmg, price]; JSON?
-#weapons = {0: ['Faulty Blaster', 10, 0], 1: ['Blaster', 20, 50], 2: ['Legendary Blaster', 30, 150], 3: ['Destroyer of Worlds', 999, 999]}
+# dict of possible weapons; put in database and add prefixes/suffixes?
 with open('data/weapons.json', 'r') as json_file:
 	weapons = json.load(json_file)
 weapons = {int(key):value for key, value in weapons.items()}
 
-# dict of enemies [name, maxhp, dmg, credits]
+# dict of enemies
 # use range of numbers to set, which enemies can be fought at the moment, then remove/add numbers to change this?
-#enemies = {0: ['Bounty Hunter', 50, 1, 1], 1: ['Thug', 50, 1, 2], 2: ['Spy', 50, 2, 4], 3: ['Assassin', 50, 3, 8]}
 with open('data/enemies.json', 'r') as json_file:
 	enemies = json.load(json_file)
 enemies = {int(key):value for key, value in enemies.items()}
 
-# possible rumours; needs formatting
+# possible rumours; needs formatting; json?
 rumour_list = ['\tDid you know that the Space Ninja Academy has its headquarters on Vome Seven?']
 
-# enigmator
+# enigmator; json?
 enigma = 'to do'
 
-# planets
+# planets; could probably be put into a dict/json as well --> should make changing the planet easier
 planet_list = ['Vome Seven', 'Linga', 'Krek Beta', 'Pylox', 'Cherenkovia Gamma', 'Pastor Major', 'Solecerca']
 
 
