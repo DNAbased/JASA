@@ -1,0 +1,84 @@
+enigma_00:
+    main:
+        '''
+        987 --> 6
+        1337 --> 5
+        8080 --> ?
+        '''
+
+    hint:
+        'Sum... sum... something.'
+
+    solution:
+        '7'
+
+    explanation:
+        calculate the cross sum until you end up with a single digit number (8080 --> 16 --> 7)
+
+enigma_01:
+    main:
+        '''
+        In another time, in another galaxy,
+        how does liberty die?
+        '''
+
+    hint:
+        'Politics. In Spaaace.'
+
+    solution:
+        'With thunderous applause.'
+
+    explanation:
+        'Quote from Star Wars Episode III: Revenge of the Sith, Padmé Amidala: "So this is how liberty dies...with thunderous applause."'
+
+enigma_02:
+    main:
+        0
+
+    hint:
+        0
+
+    solution:
+        0
+
+    explanation:
+        0
+
+enigma_03:
+    main:
+        0
+
+    hint:
+        0
+
+    solution:
+        0
+
+    explanation:
+        0
+
+enigma_04:
+    main:
+        0
+
+    hint:
+        0
+
+    solution:
+        0
+
+    explanation:
+        0
+
+enigma_05:
+    main:
+        0
+
+    hint:
+        0
+
+    solution:
+        0
+
+    explanation:
+        0

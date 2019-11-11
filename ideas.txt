@@ -16,8 +16,6 @@ save progress? should be sufficient to save the player character; might benefit 
 
 planets: put in json file
 
-overview of enigmas including hints and reason for the correct solution
-
 make encounterable enemies dependent on current planet
 add option to count defeated enemies (as char class attribute?) --> might be used for quests
 
