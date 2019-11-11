@@ -9,7 +9,9 @@ add a nemesis (final boss) also created in intro()?
 implement a different way of calculating experience gain
 --> this also requires some in-depth analysis of how quickly level-ups should be possible
 
-difficulty option?
+difficulty option? (HP/dmg modifier for player) --> Mundane: x5; Easy: x2; Vanilly: x1; Hard: x0.75; Psychotic: x0.5; Deranged: x0.2; Impossible: x0.1
+
+since the current HP increase will become insane pretty fast, need to find a better (probably more complicated) formula; also see exp gain
 
 make encounterable enemies dependent on current planet
 add option to count defeated enemies (as char class attribute?) --> might be used for quests
