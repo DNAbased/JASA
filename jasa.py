@@ -5,6 +5,7 @@
 import sys
 import random
 import json
+import pickle
 
 
 # dict of possible weapons; put in database and add prefixes/suffixes?
@@ -103,16 +104,43 @@ def main():
         Will you be that hero?
 
         1: Engage
+        2: Load game
         9: Quit
         ''')
     choice = input('')
     if choice in ['', '1', 'Engage', 'engage']:
         intro()
+    elif choice in ['2', 'Load', 'load', 'Load game']:
+    	gameload()
     elif choice in ['9', 'Quit', 'quit']:
         quitter()
     else:
         clr()
         main()
+
+
+# load
+def gameload():
+	clr()
+	print('''
+	Please type the exact of your savegame file.
+	Press enter to accept the default ('jasa.save').
+	''')
+	choice = input('')
+	if choice == '':
+		choice = 'jasa.save'
+	clr()
+	print('\tLoading game from ', choice)
+	with open(choice, 'rb') as pickle_file:
+		global player
+		player = pickle.load(pickle_file)
+	print('''
+	Game loaded.
+	Welcome back, %s.
+	''' % player.name) # note: while loading is not implemented, this breaks the game because player does not exist yet
+	cont()
+	choice = input('')
+	start()
 
 
 # introduction part two
@@ -155,7 +183,8 @@ def start():
         4: Visit the booster dispenser
         5: Listen to rumours
         6: Visit the Enigmator
-        8: Visit the ITF (Interplanetary Teleportation Facility)
+        7: Visit the ITF (Interplanetary Teleportation Facility)
+        8: Save the game
         9: Quit
         ''' % (player.name, player.hp, player.maxhp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5, player.planet))
     choice = input('')
@@ -171,8 +200,10 @@ def start():
         rumours()
     elif choice in ['6', 'Enigmator', 'enigmator', 'Visit the Enigmator']:
         enigmator()
-    elif choice in ['8', 'ITF', 'itf']:
+    elif choice in ['7', 'ITF', 'itf']:
         itf()
+    elif choice in ['8', 'Save', 'save', 'Save the game']:
+    	gamesave()
     elif choice in ['9', 'Quit', 'quit']:
         quitter()
     elif choice in ['creds']:
@@ -181,6 +212,18 @@ def start():
     else:
         clr()
         start()
+
+
+# save
+def gamesave():
+	clr()
+	print('\tSaving.')
+	with open('jasa.save', 'wb') as pickle_file:
+		pickle.dump(player, pickle_file, pickle.HIGHEST_PROTOCOL)
+	print('\tGame saved at jasa.save.')
+	cont()
+	choice = input('')
+	start()
 
 
 # teleportation facility

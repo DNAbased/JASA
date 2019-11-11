@@ -11,8 +11,6 @@ implement a different way of calculating experience gain
 
 difficulty option?
 
-save progress? should be sufficient to save the player character; might benefit from obscuring the contents of the (json?) save file
-
 make encounterable enemies dependent on current planet
 add option to count defeated enemies (as char class attribute?) --> might be used for quests
 
