@@ -6,15 +6,12 @@ split into multiple scripts? starting to get messy
 
 add a nemesis (final boss) also created in intro()?
 
-add different planets? how to travel? how to implement planet check?
-
 implement a different way of calculating experience gain
+--> this also requires some in-depth analysis of how quickly level-ups should be possible
 
 difficulty option?
 
 save progress? should be sufficient to save the player character; might benefit from obscuring the contents of the (json?) save file
-
-planets: put in json file
 
 make encounterable enemies dependent on current planet
 add option to count defeated enemies (as char class attribute?) --> might be used for quests

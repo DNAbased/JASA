@@ -25,8 +25,9 @@ rumour_list = ['\tDid you know that the Space Ninja Academy\n\thas its headquart
 enigma = 'to do'
 
 # planets; could probably be put into a dict/json as well --> should make changing the planet easier
-planet_list = ['Vome Seven', 'Linga', 'Krek Beta', 'Pylox', 'Cherenkovia Gamma', 'Pastor Major', 'Solecerca']
-
+with open('data/planets.json', 'r') as json_file:
+    planets = json.load(json_file)
+planets = {int(key):value for key, value in planets.items()}
 
 # player character class
 class Char():
@@ -43,6 +44,8 @@ class Char():
         self.luck = 1
         self.enigma = 0
         self.speed = 1 # not used yet
+        self.planet = 'Linga'
+
     @property
     def dmg(self):
         global weapons
@@ -144,6 +147,8 @@ def start():
         Level: %i
         Experience: %i/%i
 
+        Planet: %s
+
         Choose wisely:
 
         1: Look for a fight
@@ -154,7 +159,7 @@ def start():
         6: Visit the Enigmator
         8: Visit the ITF (Interplanetary Teleportation Facility)
         9: Quit
-        ''' % (player.name, player.hp, player.maxhp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5))
+        ''' % (player.name, player.hp, player.maxhp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5, player.planet))
     choice = input('')
     if choice in ['1', 'Fight', 'fight', 'Look for a fight']:
         battleprep()
@@ -168,6 +173,8 @@ def start():
         rumours()
     elif choice in ['6', 'Enigmator', 'enigmator', 'Visit the Enigmator']:
         enigmator()
+    elif choice in ['8', 'ITF', 'itf']:
+        itf()
     elif choice in ['9', 'Quit', 'quit']:
         quitter()
     elif choice in ['creds']:
@@ -176,6 +183,66 @@ def start():
     else:
         clr()
         start()
+
+
+# teleportation facility
+def itf():
+    clr()
+    print('''
+        Welcome to the Interplanetary Teleporation Facility.
+        Thanks to Ty Corp, you are travelling for free using
+        our novel emission-free teleportation algorithm.
+
+        Please choose your travel destination.
+
+        1: Linga
+        2: Vome Seven
+        3: Krek Beta
+        4: Pylox
+        5: Cherenkovia Gamma
+        6: Pastor Major
+        7: Solecerca
+        8: Exit ITF
+        ''')
+    choice = input('')
+    if choice in ['1', 'Linga', 'linga']:
+        player.planet = 'Linga'
+        teleport()
+    elif choice in ['2', 'Vome Seven', 'vome seven']:
+        player.planet = 'Vome Seven'
+        teleport()
+    elif choice in ['3', 'Krek Beta', 'krek beta']:
+        player.planet = 'Krek Beta'
+        teleport()
+    elif choice in ['4', 'Pylox', 'pylox']:
+        player.planet = 'Pylox'
+        teleport()
+    elif choice in ['5', 'Cherenkovia Gamma', 'cherenkovia gamma']:
+        player.planet = 'Cherenkovia Gamma'
+        teleport()
+    elif choice in ['6', 'Pastor Major', 'pastor major']:
+        player.planet = 'Pastor Major'
+        teleport()
+    elif choice in ['7', 'Solecerca', 'solecerca']:
+        player.planet = 'Solecerca'
+        teleport()
+    else:
+        start()
+
+
+# teleportation
+def teleport():
+    clr()
+    print('''
+        You enter the teleportation chamber.
+        Within what feels like seconds, you have arrived
+        at your destination.
+
+        Welcome to %s.
+        ''' % player.planet)
+    cont()
+    choice = input('')
+    start()
 
 
 # riddle machine

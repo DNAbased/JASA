@@ -5,3 +5,7 @@ data/weapons.json
 data/enemies.json
 	Key: consecutively numbered, str (converted to int in jasa.py)
 	Values: [Name (str), MaxHP (int), Damage (int), Credits (int)]
+
+data/planets.json
+	Key: consecutively numbered, str (converted to int in jasa.py)
+	Values: [Name (str), placeholder (int)]
