@@ -1,0 +1,28 @@
+quests: should be possible to add puzzles etc
+
+skills: trick shot; attack with higher accuracy (once accuracy is implemented); double attack; first strike (once speed is implemented)
+
+split into multiple scripts? starting to get messy
+
+add a nemesis (final boss) also created in intro()?
+
+add different planets? how to travel? how to implement planet check?
+
+implement a different way of calculating experience gain
+
+difficulty option?
+
+save progress? should be sufficient to save the player character; might benefit from obscuring the contents of the (json?) save file
+
+planets: put in json file
+
+overview of enigmas including hints and reason for the correct solution
+
+make encounterable enemies dependent on current planet
+add option to count defeated enemies (as char class attribute?) --> might be used for quests
+
+skills: separate function called from within battle
+
+import function from python file in another folder?
+https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
+second answer

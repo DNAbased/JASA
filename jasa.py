@@ -1,14 +1,5 @@
 # JASA - Just Another Space Adventure
 
-# quests: should be possible to add puzzles etc
-# skills: trick shot; attack with higher accuracy (once accuracy is implemented); double attack; first strike (once speed is implemented)
-# split into multiple scripts? starting to get messy
-# add a nemesis (final boss) also created in intro()?
-# add different planets? how to travel? how to implement planet check?
-# implement a different way of calculating experience gain
-# difficulty option?
-# save progress? should be sufficient to save the player character; might benefit from obscuring the contents of the (json?) save file
-
 
 # imports
 import sys
@@ -161,6 +152,7 @@ def start():
         4: Visit the booster dispenser
         5: Listen to rumours
         6: Visit the Enigmator
+        8: Visit the ITF (Interplanetary Teleportation Facility)
         9: Quit
         ''' % (player.name, player.hp, player.maxhp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5))
     choice = input('')
