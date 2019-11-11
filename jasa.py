@@ -21,9 +21,6 @@ enemies = {int(key):value for key, value in enemies.items()}
 # possible rumours; needs formatting; json?
 rumour_list = ['\tDid you know that the Space Ninja Academy\n\thas its headquarters on Vome Seven?\n', '\tTy Corp is harvesting radioactive material\n\tnear Solecerca.\n']
 
-# enigmator; json? functions?
-enigma = 'to do'
-
 # planets; could probably be put into a dict/json as well --> should make changing the planet easier
 with open('data/planets.json', 'r') as json_file:
     planets = json.load(json_file)
