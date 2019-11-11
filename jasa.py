@@ -41,7 +41,8 @@ class Char():
         self.luck = 1
         self.enigma = 0
         self.speed = 1 # not used yet
-        self.planet = 'Linga'
+        self.planet_n = 0
+        self.planet = planets[self.planet_n][0]
 
     @property
     def dmg(self):
@@ -192,36 +193,43 @@ def itf():
 
         Please choose your travel destination.
 
-        1: Linga
-        2: Vome Seven
-        3: Krek Beta
-        4: Pylox
-        5: Cherenkovia Gamma
-        6: Pastor Major
-        7: Solecerca
+        1: %s
+        2: %s
+        3: %s
+        4: %s
+        5: %s
+        6: %s
+        7: %s
         8: Exit ITF
-        ''')
+        ''' % (planets[0][0], planets[1][0], planets[2][0], planets[3][0], planets[4][0], planets[5][0], planets[6][0]))
     choice = input('')
     if choice in ['1', 'Linga', 'linga']:
-        player.planet = 'Linga'
+        player.planet_n = 0
+        player.planet = planets[0][0]
         teleport()
     elif choice in ['2', 'Vome Seven', 'vome seven']:
-        player.planet = 'Vome Seven'
+        player.planet_n = 1
+        player.planet = planets[player.planet_n][0]
         teleport()
     elif choice in ['3', 'Krek Beta', 'krek beta']:
-        player.planet = 'Krek Beta'
+        player.planet_n = 2
+        player.planet = planets[player.planet_n][0]
         teleport()
     elif choice in ['4', 'Pylox', 'pylox']:
-        player.planet = 'Pylox'
+        player.planet_n = 3
+        player.planet = planets[player.planet_n][0]
         teleport()
     elif choice in ['5', 'Cherenkovia Gamma', 'cherenkovia gamma']:
-        player.planet = 'Cherenkovia Gamma'
+        player.planet_n = 4
+        player.planet = planets[player.planet_n][0]
         teleport()
     elif choice in ['6', 'Pastor Major', 'pastor major']:
-        player.planet = 'Pastor Major'
+        player.planet_n = 5
+        player.planet = planets[player.planet_n][0]
         teleport()
     elif choice in ['7', 'Solecerca', 'solecerca']:
-        player.planet = 'Solecerca'
+        player.planet_n = 6
+        player.planet = planets[player.planet_n][0]
         teleport()
     else:
         start()
