@@ -111,7 +111,7 @@ def main():
     if choice in ['', '1', 'Engage', 'engage']:
         intro()
     elif choice in ['2', 'Load', 'load', 'Load game']:
-    	gameload()
+        gameload()
     elif choice in ['9', 'Quit', 'quit']:
         quitter()
     else:
@@ -121,26 +121,26 @@ def main():
 
 # load
 def gameload():
-	clr()
-	print('''
-	Please type the exact of your savegame file.
-	Press enter to accept the default ('jasa.save').
-	''')
-	choice = input('')
-	if choice == '':
-		choice = 'jasa.save'
-	clr()
-	print('\tLoading game from ', choice)
-	with open(choice, 'rb') as pickle_file:
-		global player
-		player = pickle.load(pickle_file)
-	print('''
-	Game loaded.
-	Welcome back, %s.
-	''' % player.name) # note: while loading is not implemented, this breaks the game because player does not exist yet
-	cont()
-	choice = input('')
-	start()
+    clr()
+    print('''
+    Please type the exact of your savegame file.
+    Press enter to accept the default ('jasa.save').
+    ''')
+    choice = input('')
+    if choice == '':
+        choice = 'jasa.save'
+    clr()
+    print('\tLoading game from ', choice)
+    with open(choice, 'rb') as pickle_file:
+        global player
+        player = pickle.load(pickle_file)
+    print('''
+    Game loaded.
+    Welcome back, %s.
+    ''' % player.name) # note: while loading is not implemented, this breaks the game because player does not exist yet
+    cont()
+    choice = input('')
+    start()
 
 
 # introduction part two
@@ -203,7 +203,7 @@ def start():
     elif choice in ['7', 'ITF', 'itf']:
         itf()
     elif choice in ['8', 'Save', 'save', 'Save the game']:
-    	gamesave()
+        gamesave()
     elif choice in ['9', 'Quit', 'quit']:
         quitter()
     elif choice in ['creds']:
@@ -216,14 +216,14 @@ def start():
 
 # save
 def gamesave():
-	clr()
-	print('\tSaving.')
-	with open('jasa.save', 'wb') as pickle_file:
-		pickle.dump(player, pickle_file, pickle.HIGHEST_PROTOCOL)
-	print('\tGame saved at jasa.save.')
-	cont()
-	choice = input('')
-	start()
+    clr()
+    print('\tSaving.')
+    with open('jasa.save', 'wb') as pickle_file:
+        pickle.dump(player, pickle_file, pickle.HIGHEST_PROTOCOL)
+    print('\tGame saved at jasa.save.')
+    cont()
+    choice = input('')
+    start()
 
 
 # teleportation facility
@@ -636,18 +636,53 @@ def battle():
 
         1: Fight
         2: Use booster
-        3. Flee
+        3: Skills
+        4: Flee
         ''' % (player.hp, player.maxhp, player.boosters, enemy.name, enemy.hp, enemy.maxhp))
     choice = input('')
     if choice in ['', '1', 'Fight', 'fight',]:
         fight()
     elif choice in ['2', 'Booster', 'booster', 'Use booster', 'use booster', 'Use Booster']:
         booster()
-    elif choice in ['3', 'Flee', 'flee']:
+    elif choice in ['3', 'Skills', 'skills']:
+        skills()
+    elif choice in ['4', 'Flee', 'flee']:
         flee()
     else:
         clr()
         battle()
+
+
+# skill overview; unlocked by leveling up
+def skills():
+    clr()
+    print('''
+        Skills:
+
+        1: skill 1 (Level 3)
+        2: skill 2 (Level 5)
+        etc
+        9: Back
+        ''')
+    choice = input('')
+    if choice in ['1']:
+        skill_01()
+    elif choice in ['2']:
+        skill_02()
+    elif choice in ['9', 'Back', 'back']:
+        battle()
+    else:
+        skills()
+
+
+# first skill; missing 
+def skill_01():
+    battle()
+
+
+# second skill; missing 
+def skill_02():
+    battle()
 
 
 # the fight proper; player always attacks first, seems unfair

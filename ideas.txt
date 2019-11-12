@@ -16,8 +16,6 @@ since the current HP increase will become insane pretty fast, need to find a bet
 make encounterable enemies dependent on current planet
 add option to count defeated enemies (as char class attribute?) --> might be used for quests
 
-skills: separate function called from within battle
-
 import function from python file in another folder?
 https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
 second answer
