@@ -9,3 +9,13 @@ data/enemies.json
 data/planets.json
 	Key: consecutively numbered, str (converted to int in jasa.py)
 	Values: [Name (str), placeholder (int)]
+
+data/enigma_hints.json
+	Key: consecutively numbered, str (converted to int in jasa.py)
+	Value: Hint (str)
+
+info/enigma_overview.info # not used in the game
+	main: Enigma as printed for the player
+	hint: The hint, which the player can buy (also in data/enigma_hints.json)
+	solution: The expected solution (usually, more liberal input is accepted)
+	explanation: Reasoning behind the enigma and its solution

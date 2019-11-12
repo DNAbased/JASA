@@ -27,6 +27,11 @@ with open('data/planets.json', 'r') as json_file:
     planets = json.load(json_file)
 planets = {int(key):value for key, value in planets.items()}
 
+# enigmator hints
+with open('data/enigma_hints.json', 'r') as json_file:
+	hints = json.load(json_file)
+hints = {int(key):value for key, value in hints.items()}
+
 # player character class
 class Char():
     def __init__(self, name):
@@ -307,8 +312,9 @@ def enigmator():
         1: Play
         2: Show current level
         3: Show the rules
-        4: Enigma Ultima
-        5: Log off
+        4: Hint
+        5: Enigma Ultima
+        6: Log off
         ''')
     choice = input('')
     if choice in ['', '1', 'Play', 'play']:
@@ -321,10 +327,36 @@ def enigmator():
         enigmator()
     elif choice in ['3', 'rules', 'Rules', 'Show the rules']:
         enigmator_rules()
-    elif choice in ['4', 'Ultima', 'ultima', 'Enigma Ultima']:
+    elif choice in ['4', 'Hint', 'hint']:
+    	enigmator_hint()
+    elif choice in ['5', 'Ultima', 'ultima', 'Enigma Ultima']:
         enigma_ultima()
     else:
         start()
+
+
+# buy a hint
+def enigmator_hint():
+	clr()
+	print('''
+	You may buy a hint for your current enigma.
+	Please note that your access to this hint will not be saved.
+
+	1: Buy hint (1 Credit)
+	2: Back
+	''')
+	choice = input('')
+	if choice in ['1', 'Buy', 'buy', 'Buy hint']:
+		clr()
+		print(hints[player.enigma])
+		player.credits -= 1
+		cont()
+		choice = input('')
+		enigmator()
+	elif choice in ['2', 'Back', 'back']:
+		enigmator()
+	else:
+		enigmator_hint()
 
 
 # which enigma to start; might get messy in the near future

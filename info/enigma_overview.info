@@ -59,16 +59,16 @@ enigma_03:
 
 enigma_04:
     main:
-        0
+        '\tDemons run...'
 
     hint:
-        0
+        'Who?'
 
     solution:
-        0
+        'when a good man goes to war.'
 
     explanation:
-        0
+        Saying from Doctor Who (Season 6, Episode 7): "Demons run when a good man goes to war [...]."
 
 enigma_05:
     main:
