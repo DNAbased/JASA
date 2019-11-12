@@ -441,6 +441,21 @@ def enigma_01():
         enigma_fail()
 
 
+# third enigma; hint: 'Letters and numbers.'
+def enigma_02():
+	clr()
+	print('''
+        Ten --> 39
+        Eleven --> 63
+        Twelve --> ?
+        ''')
+	choice = input('')
+	if choice in ['87', 'eightyseven', 'eighty-seven', 'eighty seven']:
+		enigma_win()
+	else:
+		enigma_fail
+
+
 # correct enigma answer
 def enigma_win():
     clr()

@@ -33,16 +33,20 @@ enigma_01:
 
 enigma_02:
     main:
-        0
+        '''
+        Ten --> 39
+        Eleven --> 63
+        Twelve --> ?
+        '''
 
     hint:
-        0
+        'Letters and numbers.'
 
     solution:
-        0
+        87
 
     explanation:
-        0
+        'Assign A = 1, B = 2, etc. and calculate the sum of the numbers.'
 
 enigma_03:
     main:
