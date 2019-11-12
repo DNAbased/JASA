@@ -43,23 +43,23 @@ enigma_02:
         'Letters and numbers.'
 
     solution:
-        87
+        '87'
 
     explanation:
         'Assign A = 1, B = 2, etc. and calculate the sum of the numbers.'
 
 enigma_03:
     main:
-        0
+        'YLXP ZQ ESTD RLXP?'
 
     hint:
-        0
+        'Lateral thinking: the Ides of March.'
 
     solution:
-        0
+        'JASA'
 
     explanation:
-        0
+        'The Ides of March (15 March) mark the day of Caesar's assassination. A Caesar cipher works by shifting letters by X positions; in this case 15. The question is therefore "NAME OF THIS GAME?". For the answer, no shifting is required (but accepted as answer, independet of shifting direction). '
 
 enigma_04:
     main:
@@ -72,7 +72,7 @@ enigma_04:
         'when a good man goes to war.'
 
     explanation:
-        Saying from Doctor Who (Season 6, Episode 7): "Demons run when a good man goes to war [...]."
+        'Saying from Doctor Who (Season 6, Episode 7): "Demons run when a good man goes to war [...]."'
 
 enigma_05:
     main:

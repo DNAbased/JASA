@@ -453,7 +453,29 @@ def enigma_02():
 	if choice in ['87', 'eightyseven', 'eighty-seven', 'eighty seven']:
 		enigma_win()
 	else:
-		enigma_fail
+		enigma_fail()
+
+
+# fourth enigma; hint: 'Lateral thinking: the Ides of March.'
+def enigma_03():
+	clr()
+	print('\tYLXP ZQ ESTD RLXP?')
+	choice = input('')
+	if choice in ['JASA', 'YPHP', 'ULDL']:
+		enigma_win()
+	else:
+		enigma_fail()
+
+
+# fifth enigma; hint: 'Who?'
+def enigma_04():
+	clr()
+	print('\tDemons run...')
+	choice = input('')
+	if choice in ['when a good man goes to war', 'good man', 'to war', 'Good Man', 'to War']:
+		enigma_win()
+	else:
+		enigma_fail()
 
 
 # correct enigma answer
@@ -731,7 +753,13 @@ def skills():
 # first skill; missing 
 def skill_01():
     clr()
-    battle()
+    if player.lvl >= 3:
+    	battle() # use the skill
+    else:
+    	print('\tYou can not yet use this skill.')
+    	cont()
+    	choice = input('')
+    	battle()
 
 
 # second skill; missing 

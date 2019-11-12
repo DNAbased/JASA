@@ -20,3 +20,5 @@ add option to count defeated enemies (as char class attribute?) --> might be use
 import function from python file in another folder?
 https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
 second answer
+
+need different/better/more interesting rewards for winning the enigmas
