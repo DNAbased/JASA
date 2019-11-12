@@ -708,6 +708,8 @@ def skills():
 
         1: skill 1 (Level 3)
         2: skill 2 (Level 5)
+        3: skill 3 (Level 8)
+        4: skill 4 (Level 10)
         etc
         9: Back
         ''')
@@ -716,6 +718,10 @@ def skills():
         skill_01()
     elif choice in ['2']:
         skill_02()
+    elif choice in ['3']:
+    	skill_03()
+    elif choice in ['4']:
+    	skill_04()
     elif choice in ['9', 'Back', 'back']:
         battle()
     else:
@@ -724,12 +730,26 @@ def skills():
 
 # first skill; missing 
 def skill_01():
+    clr()
     battle()
 
 
 # second skill; missing 
 def skill_02():
+    clr()
     battle()
+
+
+# third skill; missing
+def skill_03():
+	clr()
+	battle()
+
+
+# fourth skill; missing
+def skill_04():
+	clr()
+	battle()
 
 
 # the fight proper; player always attacks first, seems unfair

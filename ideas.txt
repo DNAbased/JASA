@@ -1,6 +1,7 @@
 quests: should be possible to add puzzles etc
 
 skills: trick shot; attack with higher accuracy (once accuracy is implemented); double attack; first strike (once speed is implemented)
+--> give a finite amount of skill points for use in a single battle, which are replenished at the start of each battle? could be another part of the char class. if yes: print the number of skill points in the skill selection
 
 split into multiple scripts? starting to get messy
 
