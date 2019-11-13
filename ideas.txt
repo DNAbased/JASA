@@ -5,12 +5,19 @@ skills: trick shot; attack with higher accuracy (once accuracy is implemented); 
 
 split into multiple scripts? starting to get messy
 
-add a nemesis (final boss) also created in intro()?
+add a nemesis (final boss) also created in intro()? intro probably not possible; might also be difficult to implement with regard to the saving function; warrants further investigation
 
 implement a different way of calculating experience gain
 --> this also requires some in-depth analysis of how quickly level-ups should be possible
 
-difficulty option? (HP/dmg modifier for player) --> Mundane: x5; Easy: x2; Vanilla: x1; Challenging: x0.75; Hard: x0.5; Deranged: x0.2; Impossible: x0.1
+difficulty option? (HP/dmg modifier for player) --> 
+	0: Mundane: x5
+	1: Easy: x2
+	2: Vanilla: x1
+	3: Challenging: x0.75
+	4: Hard: x0.5
+	5: Deranged: x0.2
+	6: Impossible: x0.1
 
 since the current HP increase will become insane pretty fast, need to find a better (probably more complicated) formula; also see exp gain
 
@@ -22,3 +29,5 @@ https://stackoverflow.com/questions/4383571/importing-files-from-different-folde
 second answer
 
 need different/better/more interesting rewards for winning the enigmas
+
+random level up message for each level up ('unlimited power!', etc.)?

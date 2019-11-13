@@ -150,24 +150,52 @@ def change_difficulty():
     global current_difficulty
     if choice in ['1', 'Mundane', 'mundane']:
         current_difficulty = 0
+        clr()
+        print('\tMundane. Note: danger of boredom.\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['2', 'Easy', 'easy']:
         current_difficulty = 1
+        clr()
+        print('\tEasy. Easy peasy lemon squeezy.\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['3', 'Vanilla', 'vanilla']:
         current_difficulty = 2
+        clr()
+        print('\tVanilla. The classic.\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['4', 'Challenging', 'challenging']:
         current_difficulty = 3
+        clr()
+        print('\tChallenging. Challenge accepted!\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['5', 'Hard', 'hard']:
         current_difficulty = 4
+        clr()
+        print('\tHard. Nuff said.\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['6', 'Deranged', 'deranged']:
         current_difficulty = 5
+        clr()
+        print('\tDeranged. Who in their right mind would choose this?\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['7', 'Impossible', 'impossible']:
         current_difficulty = 6
+        clr()
+        print('\tImpossible. Now that\'s a mission.\n')
+        cont()
+        choice = input('')
         main()
     elif choice in ['8', 'Back', 'back']:
         main()
