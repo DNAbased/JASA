@@ -29,7 +29,7 @@ planets = {int(key):value for key, value in planets.items()}
 
 # enigmator hints
 with open('data/enigma_hints.json', 'r') as json_file:
-	hints = json.load(json_file)
+    hints = json.load(json_file)
 hints = {int(key):value for key, value in hints.items()}
 
 # player character class
@@ -163,12 +163,7 @@ def start():
     clr()
     # level check
     if player.exp >= player.lvl*player.lvl*5:
-        player.exp -= player.lvl*player.lvl*5
-        player.lvl += 1
-        player.maxhp = player.maxhp * 1.2
-        player.hp = player.maxhp
-        player.luck += 1 # randomize [0, 1]?
-        print('\tLevel up!\n')
+        level_up()
     print('''
         Name: %s
         HP: %i/%i
@@ -217,6 +212,25 @@ def start():
     else:
         clr()
         start()
+
+
+# level up
+def level_up():
+    clr()
+    player.exp -= player.lvl*player.lvl*5 # change required exp?
+    player.lvl += 1
+    player.maxhp = player.maxhp * 1.2
+    player.hp = player.maxhp
+    player.luck += 1 # randomize [0, 1]?
+    print('''
+        Level up!
+        
+        Level increased to %i.
+        Max HP increased to %i.
+        ''' % (player.lvl, player.maxhp))
+    cont()
+    choice = input('')
+    start()
 
 
 # save
@@ -328,7 +342,7 @@ def enigmator():
     elif choice in ['3', 'rules', 'Rules', 'Show the rules']:
         enigmator_rules()
     elif choice in ['4', 'Hint', 'hint']:
-    	enigmator_hint()
+        enigmator_hint()
     elif choice in ['5', 'Ultima', 'ultima', 'Enigma Ultima']:
         enigma_ultima()
     else:
@@ -337,26 +351,26 @@ def enigmator():
 
 # buy a hint
 def enigmator_hint():
-	clr()
-	print('''
-	You may buy a hint for your current enigma.
-	Please note that your access to this hint will not be saved.
+    clr()
+    print('''
+    You may buy a hint for your current enigma.
+    Please note that your access to this hint will not be saved.
 
-	1: Buy hint (1 Credit)
-	2: Back
-	''')
-	choice = input('')
-	if choice in ['1', 'Buy', 'buy', 'Buy hint']:
-		clr()
-		print(hints[player.enigma])
-		player.credits -= 1
-		cont()
-		choice = input('')
-		enigmator()
-	elif choice in ['2', 'Back', 'back']:
-		enigmator()
-	else:
-		enigmator_hint()
+    1: Buy hint (1 Credit)
+    2: Back
+    ''')
+    choice = input('')
+    if choice in ['1', 'Buy', 'buy', 'Buy hint']:
+        clr()
+        print(hints[player.enigma])
+        player.credits -= 1
+        cont()
+        choice = input('')
+        enigmator()
+    elif choice in ['2', 'Back', 'back']:
+        enigmator()
+    else:
+        enigmator_hint()
 
 
 # which enigma to start; might get messy in the near future
@@ -443,39 +457,39 @@ def enigma_01():
 
 # third enigma; hint: 'Letters and numbers.'
 def enigma_02():
-	clr()
-	print('''
+    clr()
+    print('''
         Ten --> 39
         Eleven --> 63
         Twelve --> ?
         ''')
-	choice = input('')
-	if choice in ['87', 'eightyseven', 'eighty-seven', 'eighty seven']:
-		enigma_win()
-	else:
-		enigma_fail()
+    choice = input('')
+    if choice in ['87', 'eightyseven', 'eighty-seven', 'eighty seven']:
+        enigma_win()
+    else:
+        enigma_fail()
 
 
 # fourth enigma; hint: 'Lateral thinking: the Ides of March.'
 def enigma_03():
-	clr()
-	print('\tYLXP ZQ ESTD RLXP?')
-	choice = input('')
-	if choice in ['JASA', 'YPHP', 'ULDL']:
-		enigma_win()
-	else:
-		enigma_fail()
+    clr()
+    print('\tYLXP ZQ ESTD RLXP?')
+    choice = input('')
+    if choice in ['JASA', 'YPHP', 'ULDL']:
+        enigma_win()
+    else:
+        enigma_fail()
 
 
 # fifth enigma; hint: 'Who?'
 def enigma_04():
-	clr()
-	print('\tDemons run...')
-	choice = input('')
-	if choice in ['when a good man goes to war', 'good man', 'to war', 'Good Man', 'to War']:
-		enigma_win()
-	else:
-		enigma_fail()
+    clr()
+    print('\tDemons run...')
+    choice = input('')
+    if choice in ['when a good man goes to war', 'good man', 'to war', 'Good Man', 'to War']:
+        enigma_win()
+    else:
+        enigma_fail()
 
 
 # correct enigma answer
@@ -741,9 +755,9 @@ def skills():
     elif choice in ['2']:
         skill_02()
     elif choice in ['3']:
-    	skill_03()
+        skill_03()
     elif choice in ['4']:
-    	skill_04()
+        skill_04()
     elif choice in ['9', 'Back', 'back']:
         battle()
     else:
@@ -754,12 +768,12 @@ def skills():
 def skill_01():
     clr()
     if player.lvl >= 3:
-    	battle() # use the skill
+        battle() # use the skill
     else:
-    	print('\tYou can not yet use this skill.')
-    	cont()
-    	choice = input('')
-    	battle()
+        print('\tYou can not yet use this skill.')
+        cont()
+        choice = input('')
+        battle()
 
 
 # second skill; missing 
@@ -770,14 +784,14 @@ def skill_02():
 
 # third skill; missing
 def skill_03():
-	clr()
-	battle()
+    clr()
+    battle()
 
 
 # fourth skill; missing
 def skill_04():
-	clr()
-	battle()
+    clr()
+    battle()
 
 
 # the fight proper; player always attacks first, seems unfair
