@@ -32,6 +32,10 @@ with open('data/enigma_hints.json', 'r') as json_file:
     hints = json.load(json_file)
 hints = {int(key):value for key, value in hints.items()}
 
+# possible difficulties:
+difficulties = {0: 'Mundane', 1: 'Easy', 2: 'Vanilla', 3: 'Challenging', 4: 'Hard', 5: 'Deranged', 6: 'Impossible'}
+current_difficulty = 2 # has to be set externally at first, to allow choosing it before the char is actually created
+
 # player character class
 class Char():
     def __init__(self, name):
@@ -49,6 +53,7 @@ class Char():
         self.speed = 1 # not used yet
         self.planet_n = 0
         self.planet = planets[self.planet_n][0]
+        self.difficulty = 2
 
     @property
     def dmg(self):
@@ -110,13 +115,16 @@ def main():
 
         1: Engage
         2: Load game
+        3: Change difficulty (current: %s)
         9: Quit
-        ''')
+        ''' % difficulties[current_difficulty])
     choice = input('')
     if choice in ['', '1', 'Engage', 'engage']:
         intro()
     elif choice in ['2', 'Load', 'load', 'Load game']:
         gameload()
+    elif choice in ['3', 'Difficulty', 'difficulty', 'Change difficulty']:
+        change_difficulty()
     elif choice in ['9', 'Quit', 'quit']:
         quitter()
     else:
@@ -124,11 +132,54 @@ def main():
         main()
 
 
+# allow setting the difficulty
+def change_difficulty():
+    clr()
+    print('''
+        Choose your desired difficulty:
+
+        1: Mundane
+        2: Easy
+        3: Vanilla (default)
+        4: Challenging
+        5: Hard
+        6: Deranged
+        7: Impossible
+        ''')
+    choice = input('')
+    global current_difficulty
+    if choice in ['1', 'Mundane', 'mundane']:
+        current_difficulty = 0
+        main()
+    elif choice in ['2', 'Easy', 'easy']:
+        current_difficulty = 1
+        main()
+    elif choice in ['3', 'Vanilla', 'vanilla']:
+        current_difficulty = 2
+        main()
+    elif choice in ['4', 'Challenging', 'challenging']:
+        current_difficulty = 3
+        main()
+    elif choice in ['5', 'Hard', 'hard']:
+        current_difficulty = 4
+        main()
+    elif choice in ['6', 'Deranged', 'deranged']:
+        current_difficulty = 5
+        main()
+    elif choice in ['7', 'Impossible', 'impossible']:
+        current_difficulty = 6
+        main()
+    elif choice in ['8', 'Back', 'back']:
+        main()
+    else:
+        change_difficulty
+
+
 # load
 def gameload():
     clr()
     print('''
-    Please type the exact of your savegame file.
+    Please type the exact name of your savegame file.
     Press enter to accept the default ('jasa.save').
     ''')
     choice = input('')
@@ -155,6 +206,7 @@ def intro():
     choice = input('')
     global player
     player = Char(choice)
+    player.difficulty = current_difficulty
     start()
 
 
@@ -224,7 +276,7 @@ def level_up():
     player.luck += 1 # randomize [0, 1]?
     print('''
         Level up!
-        
+
         Level increased to %i.
         Max HP increased to %i.
         ''' % (player.lvl, player.maxhp))
