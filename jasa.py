@@ -620,14 +620,16 @@ def booster_shop():
     print('''
         You find the local booster vending machine.
         The display has several dead pixels but you
-        can read that there are several options
+        can see that there are several options
         available:
+
+        You currently have %i booster(s).
 
         1: Buy 1 booster (15 Credits)
         2: Buy 3 boosters (40 Credits)
         3: Buy 10 boosters (120 Credits)
         4: Go back
-        ''')
+        ''' % player.boosters)
     choice = input('')
     if choice == '1':
         clr()
@@ -714,7 +716,7 @@ def booster_shop():
         start()
 
 
-# quests
+# quests; nothing to be seen yet
 def quests():
     clr()
     print('\tAt the moment, no quests are available.\n')
