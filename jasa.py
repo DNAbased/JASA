@@ -19,8 +19,15 @@ with open('data/enemies.json', 'r') as json_file:
     enemies = json.load(json_file)
 enemies = {int(key):value for key, value in enemies.items()}
 
-# possible rumours; needs formatting; json?
-rumour_list = ['\tDid you know that the Space Ninja Academy\n\thas its headquarters on Vome Seven?\n', '\tTy Corp is harvesting radioactive material\n\tnear Solecerca.\n']
+#rumour_list = ['\tDid you know that the Space Ninja Academy\n\thas its headquarters on Vome Seven?\n', '\tTy Corp is harvesting radioactive material\n\tnear Solecerca.\n', '\tDo you believe in personal luck?\nIt is said to influence everthing!\n']
+with open('data/rumours.json', 'r') as json_file:
+    rumour_list = json.load(json_file)
+rumour_list = {int(key):value for key, value in rumour_list.items()}
+
+# level up messages
+with open('data/level_up.json', 'r') as json_file:
+    level_up_list = json.load(json_file)
+level_up_list = {int(key):value for key, value in level_up_list.items()}
 
 # planets; could probably be put into a dict/json as well --> should make changing the planet easier
 with open('data/planets.json', 'r') as json_file:
@@ -302,12 +309,16 @@ def level_up():
     player.maxhp = player.maxhp * 1.2
     player.hp = player.maxhp
     player.luck += 1 # randomize [0, 1]?
+    level_up_n = random.randint(1, len(level_up_list))
+    level_up_message = level_up_list[level_up_n - 1]
     print('''
         Level up!
 
+        %s
+
         Level increased to %i.
         Max HP increased to %i.
-        ''' % (player.lvl, player.maxhp))
+        ''' % (level_up_message, player.lvl, player.maxhp))
     cont()
     choice = input('')
     start()

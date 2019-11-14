@@ -19,3 +19,11 @@ info/enigma_overview.info # not used in the game
 	hint: The hint, which the player can buy (also in data/enigma_hints.json)
 	solution: The expected solution (usually, more liberal input is accepted)
 	explanation: Reasoning behind the enigma and its solution
+
+data/rumours.json
+	Key: consecutively numbered, str (converted to int in jasa.py)
+	Value: Rumour (str)
+
+data/level_up.json
+	Key: consecutively numbered, str (converted to int in jasa.py)
+	Value: Level up message (str)
