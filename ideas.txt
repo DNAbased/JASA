@@ -29,5 +29,3 @@ https://stackoverflow.com/questions/4383571/importing-files-from-different-folde
 second answer
 
 need different/better/more interesting rewards for winning the enigmas
-
-random level up message for each level up ('unlimited power!', etc.)?
