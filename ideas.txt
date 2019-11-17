@@ -29,3 +29,5 @@ https://stackoverflow.com/questions/4383571/importing-files-from-different-folde
 second answer
 
 need different/better/more interesting rewards for winning the enigmas
+
+boosters probably should not fill up hp completely --> calculate?
