@@ -30,3 +30,5 @@ second answer
 need different/better/more interesting rewards for winning the enigmas
 
 boosters probably should not fill up hp completely --> calculate?
+
+rename 'rumours' to 'rumours and advice'? might be nice to implement some tips in there
