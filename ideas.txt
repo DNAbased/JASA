@@ -31,3 +31,5 @@ second answer
 need different/better/more interesting rewards for winning the enigmas
 
 boosters probably should not fill up hp completely --> calculate?
+
+inform player about new max sp in level up screen?

@@ -61,6 +61,8 @@ class Char():
         self.planet_n = 0
         self.planet = planets[self.planet_n][0]
         self.difficulty = 2
+        self.maxsp = 1
+        self.sp = self.maxsp
 
     @property
     def dmg(self):
@@ -254,6 +256,7 @@ def start():
     print('''
         Name: %s
         HP: %i/%i
+        SP: %i/%i
         Credits: %i
         Boosters: %i
         Weapon: %s
@@ -273,7 +276,7 @@ def start():
         7: Visit the ITF (Interplanetary Teleportation Facility)
         8: Save the game
         9: Quit
-        ''' % (player.name, player.hp, player.maxhp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5, player.planet))
+        ''' % (player.name, player.hp, player.maxhp, player.sp, player.maxsp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5, player.planet))
     choice = input('')
     if choice in ['1', 'Fight', 'fight', 'Look for a fight']:
         battleprep()
@@ -306,6 +309,8 @@ def level_up():
     clr()
     player.exp -= player.lvl*player.lvl*5 # change required exp?
     player.lvl += 1
+    if player.lvl % 3 == 0: # increase max SP every third level; might change to every fifth level, depending on the power of the skills
+        player.maxsp += 1
     player.maxhp = player.maxhp * 1.2
     player.hp = player.maxhp
     player.luck += 1 # randomize [0, 1]?
@@ -318,7 +323,8 @@ def level_up():
 
         Level increased to %i.
         Max HP increased to %i.
-        ''' % (level_up_message, player.lvl, player.maxhp))
+        SP replenished to %i.
+        ''' % (level_up_message, player.lvl, player.maxhp, player.maxsp))
     cont()
     choice = input('')
     start()
@@ -801,8 +807,9 @@ def battleprep():
 def battle():
     clr()
     print('''
-        You:
+        %s:
         HP: %i/%i
+        SP: %i/%i
         Boosters: %i
 
         %s:
@@ -814,7 +821,7 @@ def battle():
         2: Use booster
         3: Skills
         4: Flee
-        ''' % (player.hp, player.maxhp, player.boosters, enemy.name, enemy.hp, enemy.maxhp))
+        ''' % (player.name, player.hp, player.maxhp, player.sp, player.maxsp, player.boosters, enemy.name, enemy.hp, enemy.maxhp))
     choice = input('')
     if choice in ['', '1', 'Fight', 'fight',]:
         fight()
@@ -835,33 +842,56 @@ def skills():
     print('''
         Skills:
 
-        1: skill 1 (Level 3)
-        2: skill 2 (Level 5)
+        1: Double Shot (Level 3)
+        2: Stun Shot (Level 5)
         3: skill 3 (Level 8)
         4: skill 4 (Level 10)
+        5: skill 5 (Level 14)
+        6: skill 6 (Level 20)
         etc
         9: Back
         ''')
     choice = input('')
-    if choice in ['1']:
+    if choice in ['1', 'Double Shot', 'double shot']:
         skill_01()
-    elif choice in ['2']:
+    elif choice in ['2', 'Stun Shot', 'stun shot']:
         skill_02()
     elif choice in ['3']:
         skill_03()
     elif choice in ['4']:
         skill_04()
+    elif choice in ['5']:
+        skill_05()
+    elif choice in ['6']:
+        skill_06()
     elif choice in ['9', 'Back', 'back']:
         battle()
     else:
         skills()
 
 
-# first skill; missing 
+# first skill; double shot
 def skill_01():
     clr()
     if player.lvl >= 3:
-        battle() # use the skill
+        player.sp -= 1
+        print('\tYou use Double Shot, dealing 150 % damage.')
+        pdmg = (player.dmg + random.randint(1,3) - 2) * 1.5
+        enemy.hp -= pdmg
+        print('\tThe enemy loses %i HP.' % pdmg)
+        cont()
+        choice = input('')
+        if enemy.hp <= 0:
+            victory()
+        edmg = enemy.dmg + random.randint(1,3) - 2
+        player.hp -= edmg
+        print('\tThe enemy attacks. You lose %i HP.' % edmg)
+        cont()
+        choice = input('')
+        if player.hp <= 0:
+            defeat()
+        else:
+            battle()
     else:
         print('\tYou can not yet use this skill.')
         cont()
@@ -869,9 +899,28 @@ def skill_01():
         battle()
 
 
-# second skill; missing 
+# second skill; stun shot
 def skill_02():
     clr()
+    if player.lvl >= 5:
+        player.sp -= 1
+        print('\tYou use Stun Shot, preventing the enemy from attacking.')
+        pdmg = player.dmg + random.randint(1,3) - 2
+        enemy.hp -= pdmg
+        print('\tThe enemy loses %i HP.' % pdmg)
+        cont()
+        choice = input('')
+        if enemy.sp <= 0:
+            victory()
+        print('\tThe enemy is stunned and can not attack.')
+        cont()
+        choice = input('')
+        battle()
+    else:
+        print('\tYou can not yet use this skill.')
+        cont()
+        choice = input('')
+        battle()
     battle()
 
 
@@ -883,6 +932,18 @@ def skill_03():
 
 # fourth skill; missing
 def skill_04():
+    clr()
+    battle()
+
+
+# fifth skill; missing
+def skill_05():
+    clr()
+    battle()
+
+
+# sixth skill; missing
+def skill_06():
     clr()
     battle()
 
@@ -929,6 +990,11 @@ def victory():
     experience = random.randint(1,5) + random.randint(1,3) + player.luck
     print('\tYou have earned %i XP.' % experience)
     player.exp += experience
+    if random.randint(1,2) == 1:
+        player.sp += 1
+        if player.sp >= player.maxsp:
+            player.sp = player.maxsp
+        print('\tYou have regained 1 SP.')
     cont()
     choice = input('')
     start()
