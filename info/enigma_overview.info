@@ -59,7 +59,7 @@ enigma_03:
         'JASA'
 
     explanation:
-        'The Ides of March (15 March) mark the day of Caesar's assassination. A Caesar cipher works by shifting letters by X positions; in this case 15. The question is therefore "NAME OF THIS GAME?". For the answer, no shifting is required (but accepted as answer, independet of shifting direction). '
+        'The Ides of March (15 March) mark the day of Caesar's assassination. A Caesar cipher works by shifting letters by X positions; in this case 15. The question is therefore "NAME OF THIS GAME?". For the answer, no shifting is required (but accepted as answer, independent of shifting direction). '
 
 enigma_04:
     main:
