@@ -1,7 +1,5 @@
 quests: should be possible to add puzzles etc
 
-skills: trick shot; attack with higher accuracy (once accuracy is implemented); double attack; first strike (once speed is implemented)
-
 split into multiple scripts? starting to get messy
 
 add a nemesis (final boss) also created in intro()? intro probably not possible; might also be difficult to implement with regard to the saving function; warrants further investigation

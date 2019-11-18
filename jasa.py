@@ -844,11 +844,11 @@ def skills():
 
         1: Double Shot (Level 3)
         2: Stun Shot (Level 5)
-        3: skill 3 (Level 8)
-        4: skill 4 (Level 10)
-        5: skill 5 (Level 14)
-        6: skill 6 (Level 20)
-        etc
+        3: Trick Shot (Level 8)
+        4: Dead Shot (Level 10)
+        5: First Shot (Level 14)
+        6: Head Shot (Level 20)
+        
         9: Back
         ''')
     choice = input('')
@@ -856,13 +856,13 @@ def skills():
         skill_01()
     elif choice in ['2', 'Stun Shot', 'stun shot']:
         skill_02()
-    elif choice in ['3']:
+    elif choice in ['3', 'Trick Shot', 'trick shot']:
         skill_03()
-    elif choice in ['4']:
+    elif choice in ['4', 'Dead Shot', 'dead shot']:
         skill_04()
-    elif choice in ['5']:
+    elif choice in ['5', 'First Shot', 'first shot']:
         skill_05()
-    elif choice in ['6']:
+    elif choice in ['6', 'Head Shot', 'head shot']:
         skill_06()
     elif choice in ['9', 'Back', 'back']:
         battle()
@@ -924,25 +924,25 @@ def skill_02():
     battle()
 
 
-# third skill; missing
+# third skill; trick shot --> permanently reduce enemy dmg?
 def skill_03():
     clr()
     battle()
 
 
-# fourth skill; missing
+# fourth skill; dead shot --> 100 % accuracy? only if accuracy is implemented
 def skill_04():
     clr()
     battle()
 
 
-# fifth skill; missing
+# fifth skill; first shot --> only if speed is implemented
 def skill_05():
     clr()
     battle()
 
 
-# sixth skill; missing
+# sixth skill; missing --> something with crits? head shot? chance to instagib?
 def skill_06():
     clr()
     battle()
