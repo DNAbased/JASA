@@ -1,7 +1,6 @@
 quests: should be possible to add puzzles etc
 
 skills: trick shot; attack with higher accuracy (once accuracy is implemented); double attack; first strike (once speed is implemented)
---> give a finite amount of skill points for use in a single battle, which are replenished at the start of each battle? could be another part of the char class. if yes: print the number of skill points in the skill selection
 
 split into multiple scripts? starting to get messy
 
@@ -9,6 +8,7 @@ add a nemesis (final boss) also created in intro()? intro probably not possible;
 
 implement a different way of calculating experience gain
 --> this also requires some in-depth analysis of how quickly level-ups should be possible
+--> might be easier to adapt exp gain rather than fine tuning the required xp
 
 difficulty option? (HP/dmg modifier for player) --> 
 	0: Mundane: x5
@@ -22,6 +22,7 @@ difficulty option? (HP/dmg modifier for player) -->
 since the current HP increase will become insane pretty fast, need to find a better (probably more complicated) formula; also see exp gain
 
 make encounterable enemies dependent on current planet
+--> dict within dict? might be best to play around a bit
 add option to count defeated enemies (as char class attribute?) --> might be used for quests
 
 import function from python file in another folder?
@@ -31,5 +32,3 @@ second answer
 need different/better/more interesting rewards for winning the enigmas
 
 boosters probably should not fill up hp completely --> calculate?
-
-inform player about new max sp in level up screen?
