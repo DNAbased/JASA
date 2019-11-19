@@ -252,7 +252,9 @@ def intro():
 def start():
     clr()
     # level check
-    if player.exp >= player.lvl*player.lvl*5:
+    #if player.exp >= player.lvl*player.lvl*5:
+    req_exp = math.ceil((player.lvl + 1) ** (7/3))
+    if player.exp >= req_exp:
         level_up()
     print('''
         Name: %s
@@ -277,7 +279,7 @@ def start():
         7: Visit the ITF (Interplanetary Teleportation Facility)
         8: Save the game
         9: Quit
-        ''' % (player.name, player.hp, player.maxhp, player.sp, player.maxsp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, player.lvl*player.lvl*5, player.planet))
+        ''' % (player.name, player.hp, player.maxhp, player.sp, player.maxsp, player.credits, player.boosters, player.weapon[0], player.lvl, player.exp, req_exp, player.planet))
     choice = input('')
     if choice in ['1', 'Fight', 'fight', 'Look for a fight']:
         battleprep()
@@ -308,7 +310,9 @@ def start():
 # level up
 def level_up():
     clr()
-    player.exp -= player.lvl*player.lvl*5 # change required exp?
+    #player.exp -= player.lvl*player.lvl*5 # change required exp?
+    req_exp = math.ceil((player.lvl + 1) ** (7/3))
+    player.exp -= req_exp
     player.lvl += 1
     if player.lvl % 3 == 0: # increase max SP every third level; might change to every fifth level, depending on the power of the skills
         player.maxsp += 1

@@ -4,10 +4,6 @@ split into multiple scripts? starting to get messy
 
 add a nemesis (final boss) also created in intro()? intro probably not possible; might also be difficult to implement with regard to the saving function; warrants further investigation
 
-implement a different way of calculating experience gain
---> this also requires some in-depth analysis of how quickly level-ups should be possible
---> might be easier to adapt exp gain rather than fine tuning the required xp
-
 difficulty option? (HP/dmg modifier for player) --> 
 	0: Mundane: x5
 	1: Easy: x2
