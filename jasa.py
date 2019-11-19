@@ -476,6 +476,14 @@ def enigma_play():
         enigma_00()
     elif player.enigma == 1:
         enigma_01()
+    elif player.enigma == 2:
+        enigma_02()
+    elif player.enigma == 3:
+        enigma_03()
+    elif player.enigma == 4:
+        enigma_04()
+    elif player.enigma == 5:
+        enigma_05()
     else:
         enigmator()
 
@@ -584,6 +592,17 @@ def enigma_04():
     print('\tDemons run...')
     choice = input('')
     if choice in ['when a good man goes to war', 'good man', 'to war', 'Good Man', 'to War']:
+        enigma_win()
+    else:
+        enigma_fail()
+
+
+# sixth enigma; hint: 'D.N.A.'
+def enigma_05():
+    clr()
+    print('\tThe answer?')
+    choice = input('')
+    if choice in ['42', 'fortytwo', 'forty-two', 'forty two']:
         enigma_win()
     else:
         enigma_fail()

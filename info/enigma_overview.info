@@ -76,13 +76,13 @@ enigma_04:
 
 enigma_05:
     main:
-        0
+        'The answer?'
 
     hint:
-        0
+        'D.N.A.'
 
     solution:
-        0
+        '42'
 
     explanation:
-        0
+        'The answer to the question of life, the universe, and everything (from The Hitchhiker's Guide to the Galaxy, written by Douglas [Noel] Adams [D.N.A.]).'
