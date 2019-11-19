@@ -934,7 +934,7 @@ def skill_02():
         print('\tThe enemy loses %i HP.' % pdmg)
         cont()
         choice = input('')
-        if enemy.sp <= 0:
+        if enemy.hp <= 0:
             victory()
         print('\tThe enemy is stunned and can not attack.')
         cont()
