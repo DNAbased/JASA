@@ -12,6 +12,7 @@ difficulty option? (HP/dmg modifier for player) -->
 	4: Hard: x0.5
 	5: Deranged: x0.2
 	6: Impossible: x0.1
+- could instead be reflected in the maxhp and dmg of the enemies?
 
 make encounterable enemies dependent on current planet
 --> dict within dict? might be best to play around a bit
