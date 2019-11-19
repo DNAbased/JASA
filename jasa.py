@@ -6,6 +6,7 @@ import sys
 import random
 import json
 import pickle
+import math
 
 
 # dict of possible weapons; put in database and add prefixes/suffixes?
@@ -311,7 +312,8 @@ def level_up():
     player.lvl += 1
     if player.lvl % 3 == 0: # increase max SP every third level; might change to every fifth level, depending on the power of the skills
         player.maxsp += 1
-    player.maxhp = player.maxhp * 1.2
+    #player.maxhp = player.maxhp * 1.2
+    player.maxhp = math.ceil(46 + player.lvl * player.lvl * 0.5 + player.lvl * 2 + player.lvl)
     player.hp = player.maxhp
     player.luck += 1 # randomize [0, 1]?
     level_up_n = random.randint(1, len(level_up_list))
