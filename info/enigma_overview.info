@@ -7,7 +7,7 @@ enigma_00:
         '''
 
     hint:
-        'Sum... sum... something.'
+        '\tSum... sum... something.'
 
     solution:
         '7'
@@ -23,7 +23,7 @@ enigma_01:
         '''
 
     hint:
-        'Politics. In Spaaace.'
+        '\tPolitics. In Spaaace.'
 
     solution:
         'With thunderous applause.'
@@ -40,7 +40,7 @@ enigma_02:
         '''
 
     hint:
-        'Letters and numbers.'
+        '\tLetters and numbers.'
 
     solution:
         '87'
@@ -50,10 +50,10 @@ enigma_02:
 
 enigma_03:
     main:
-        'YLXP ZQ ESTD RLXP?'
+        '\tYLXP ZQ ESTD RLXP?'
 
     hint:
-        'Lateral thinking: the Ides of March.'
+        '\tLateral thinking: the Ides of March.'
 
     solution:
         'JASA'
@@ -66,7 +66,7 @@ enigma_04:
         '\tDemons run...'
 
     hint:
-        'Who?'
+        '\tWho?'
 
     solution:
         'when a good man goes to war.'
@@ -76,13 +76,26 @@ enigma_04:
 
 enigma_05:
     main:
-        'The answer?'
+        '\tThe answer?'
 
     hint:
-        'D.N.A.'
+        '\tD.N.A.'
 
     solution:
         '42'
 
     explanation:
-        'The answer to the question of life, the universe, and everything (from The Hitchhiker's Guide to the Galaxy, written by Douglas [Noel] Adams [D.N.A.]).'
+        'The answer to the ultimate question of life, the universe, and everything (from The Hitchhiker's Guide to the Galaxy, written by Douglas [Noel] Adams [D.N.A.]).'
+
+enigma_06:
+    main:
+        '\t0, 1, 1, 4, 9, 25, 64, 169, 441, ?'
+
+    hint:
+        '\tLeonardo might have ordered Pasta quadrata pisano.'
+
+    solution:
+        '1156'
+
+    explanation:
+        'Each number is the square of the corresponding number in the Fibonacci sequence; 1156 is the square of 21, the 8th/9th number of the Fibonacci sequence. 'Quadrata' is italian for 'squared', while the inventor of the Fibonacci sequence (Leonardo da Pisa) was from the italian city of Pisa (hence pisano).'

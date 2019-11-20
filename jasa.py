@@ -489,6 +489,8 @@ def enigma_play():
         enigma_04()
     elif player.enigma == 5:
         enigma_05()
+    elif player.enigma == 6:
+        enigma_06()
     else:
         enigmator()
 
@@ -608,6 +610,17 @@ def enigma_05():
     print('\tThe answer?')
     choice = input('')
     if choice in ['42', 'fortytwo', 'forty-two', 'forty two']:
+        enigma_win()
+    else:
+        enigma_fail()
+
+
+# seventh enigma; hint: 'Leonardo might have ordered Pasta quadrata pisano.'
+def enigma_06():
+    clr()
+    print('\t0, 1, 1, 4, 9, 25, 64, 169, 441, ?')
+    choice = input('')
+    if choice in ('1156'):
         enigma_win()
     else:
         enigma_fail()
