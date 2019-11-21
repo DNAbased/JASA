@@ -4,16 +4,6 @@ split into multiple scripts? starting to get messy
 
 add a nemesis (final boss) also created in intro()? intro probably not possible; might also be difficult to implement with regard to the saving function; warrants further investigation
 
-difficulty option? (HP/dmg modifier for player) --> 
-	0: Mundane: x5
-	1: Easy: x2
-	2: Vanilla: x1
-	3: Challenging: x0.75
-	4: Hard: x0.5
-	5: Deranged: x0.2
-	6: Impossible: x0.1
-- could instead be reflected in the maxhp and dmg of the enemies?
-
 make encounterable enemies dependent on current planet
 --> dict within dict? might be best to play around a bit
 add option to count defeated enemies (as char class attribute?) --> might be used for quests

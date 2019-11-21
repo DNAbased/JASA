@@ -41,7 +41,7 @@ with open('data/enigma_hints.json', 'r') as json_file:
 hints = {int(key):value for key, value in hints.items()}
 
 # possible difficulties:
-difficulties = {0: 'Mundane', 1: 'Easy', 2: 'Vanilla', 3: 'Challenging', 4: 'Hard', 5: 'Deranged', 6: 'Impossible'}
+difficulties = {0: ['Mundane', 5], 1: ['Easy', 2], 2: ['Vanilla', 1], 3: ['Challenging', 0.75], 4: ['Hard', 0.5], 5: ['Deranged', 0.2], 6: ['Impossible', 0.1]}
 current_difficulty = 2 # has to be set externally at first, to allow choosing it before the char is actually created
 
 # player character class
@@ -74,11 +74,11 @@ class Char():
 
 # enemy class
 class Enemy():
-    def __init__(self, name, maxhp, dmg, credits):
+    def __init__(self, name, maxhp, dmg, credits, diff):
         self.name = name
-        self.maxhp = maxhp
+        self.maxhp = math.ceil(maxhp / diff)
         self.hp = self.maxhp
-        self.dmg = dmg
+        self.dmg = math.ceil(dmg / diff)
         self.credits = credits
     @classmethod
     def generate(self):
@@ -127,7 +127,7 @@ def main():
         2: Load game
         3: Change difficulty (current: %s)
         9: Quit
-        ''' % difficulties[current_difficulty])
+        ''' % difficulties[current_difficulty][0])
     choice = input('')
     if choice in ['', '1', 'Engage', 'engage']:
         intro()
@@ -836,7 +836,7 @@ def weapon_shop():
 def battleprep():
     global enemy
     el = enemies[random.randint(1, len(enemies))-1]
-    enemy = Enemy(el[0], el[1], el[2], el[3])
+    enemy = Enemy(el[0], el[1], el[2], el[3], difficulties[player.difficulty][1])
     battle()
 
 
