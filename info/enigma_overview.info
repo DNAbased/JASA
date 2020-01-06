@@ -98,4 +98,4 @@ enigma_06:
         '1156'
 
     explanation:
-        'Each number is the square of the corresponding number in the Fibonacci sequence; 1156 is the square of 21, the 8th/9th number of the Fibonacci sequence. 'Quadrata' is italian for 'squared', while the inventor of the Fibonacci sequence (Leonardo da Pisa) was from the italian city of Pisa (hence pisano).'
+        'Each number is the square of the corresponding number in the Fibonacci sequence; 1156 is the square of 34, the 8th/9th number of the Fibonacci sequence. 'Quadrata' is italian for 'squared', while the inventor of the Fibonacci sequence (Leonardo da Pisa) was from the italian city of Pisa (hence pisano).'
