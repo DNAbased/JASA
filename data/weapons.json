@@ -1,22 +1,47 @@
 {
  "0": [
-  "Faulty Blaster",
+  "Damaged Blaster",
   10,
   0
  ],
  "1": [
-  "Blaster",
+  "Faulty Blaster",
   20,
   50
  ],
  "2": [
-  "Legendary Blaster",
+  "Rusty Blaster",
   30,
   150
  ],
  "3": [
+  "Old Blaster",
+  40,
+  200
+],
+ "4": [
+  "Blaster",
+  50,
+  250
+],
+ "5": [
+  "New Blaster",
+  60,
+  300
+],
+ "6": [
+  "Polished Blaster",
+  70, 
+  350
+],
+ "7": [
+  "Upgraded Blaster",
+  80,
+  400
+],
+ "8": [
   "Destroyer of Worlds",
   999,
-  999
+  9999
  ]
 }
