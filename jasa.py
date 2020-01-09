@@ -908,6 +908,24 @@ def skills():
         skills()
 
 
+# skill info
+def skill_info():
+    clr()
+    print('''
+        Skill info:
+
+        Double Shot: deal 150 % damage
+        Stun Shot: prevent the enemy from attacking
+        Trick Shot: 
+        Dead Shot: 
+        First Shot: 
+        Head Shot: 
+        ''')
+    cont()
+    choice = input('')
+    skills()
+
+
 # first skill; double shot
 def skill_01():
     clr()
