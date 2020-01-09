@@ -9,18 +9,18 @@ import pickle
 import math
 
 
-# dict of possible weapons; put in database and add prefixes/suffixes?
+# weapons
 with open('data/weapons.json', 'r') as json_file:
     weapons = json.load(json_file)
 weapons = {int(key):value for key, value in weapons.items()}
 
-# dict of enemies
+# enemies
 # use range of numbers to set, which enemies can be fought at the moment, then remove/add numbers to change this?
 with open('data/enemies.json', 'r') as json_file:
     enemies = json.load(json_file)
 enemies = {int(key):value for key, value in enemies.items()}
 
-#rumour_list = ['\tDid you know that the Space Ninja Academy\n\thas its headquarters on Vome Seven?\n', '\tTy Corp is harvesting radioactive material\n\tnear Solecerca.\n', '\tDo you believe in personal luck?\nIt is said to influence everthing!\n']
+#rumour_list
 with open('data/rumours.json', 'r') as json_file:
     rumour_list = json.load(json_file)
 rumour_list = {int(key):value for key, value in rumour_list.items()}
@@ -30,7 +30,7 @@ with open('data/level_up.json', 'r') as json_file:
     level_up_list = json.load(json_file)
 level_up_list = {int(key):value for key, value in level_up_list.items()}
 
-# planets; could probably be put into a dict/json as well --> should make changing the planet easier
+# planets
 with open('data/planets.json', 'r') as json_file:
     planets = json.load(json_file)
 planets = {int(key):value for key, value in planets.items()}
@@ -231,7 +231,7 @@ def gameload():
     print('''
     Game loaded.
     Welcome back, %s.
-    ''' % player.name) # note: while loading is not implemented, this breaks the game because player does not exist yet
+    ''' % player.name)
     cont()
     choice = input('')
     start()
@@ -252,7 +252,6 @@ def intro():
 def start():
     clr()
     # level check
-    #if player.exp >= player.lvl*player.lvl*5:
     req_exp = math.ceil((player.lvl + 1) ** (7/3))
     if player.exp >= req_exp:
         level_up()
@@ -310,7 +309,6 @@ def start():
 # level up
 def level_up():
     clr()
-    #player.exp -= player.lvl*player.lvl*5 # change required exp?
     req_exp = math.ceil((player.lvl + 1) ** (7/3))
     player.exp -= req_exp
     player.lvl += 1
@@ -886,6 +884,7 @@ def skills():
         5: First Shot (Level 14)
         6: Head Shot (Level 20)
         
+        8: More info
         9: Back
         ''')
     choice = input('')
@@ -901,6 +900,8 @@ def skills():
         skill_05()
     elif choice in ['6', 'Head Shot', 'head shot']:
         skill_06()
+    elif choice in ['8', 'More info', 'more info']:
+        skill_info()
     elif choice in ['9', 'Back', 'back']:
         battle()
     else:
