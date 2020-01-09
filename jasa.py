@@ -930,23 +930,29 @@ def skill_info():
 def skill_01():
     clr()
     if player.lvl >= 3:
-        player.sp -= 1
-        print('\tYou use Double Shot, dealing 150 % damage.')
-        pdmg = (player.dmg + random.randint(1,3) - 2) * 1.5
-        enemy.hp -= pdmg
-        print('\tThe enemy loses %i HP.' % pdmg)
-        cont()
-        choice = input('')
-        if enemy.hp <= 0:
-            victory()
-        edmg = enemy.dmg + random.randint(1,3) - 2
-        player.hp -= edmg
-        print('\tThe enemy attacks. You lose %i HP.' % edmg)
-        cont()
-        choice = input('')
-        if player.hp <= 0:
-            defeat()
+        if player.sp >= 1:
+            player.sp -= 1
+            print('\tYou use Double Shot, dealing 150 % damage.')
+            pdmg = (player.dmg + random.randint(1,3) - 2) * 1.5
+            enemy.hp -= pdmg
+            print('\tThe enemy loses %i HP.' % pdmg)
+            cont()
+            choice = input('')
+            if enemy.hp <= 0:
+                victory()
+            edmg = enemy.dmg + random.randint(1,3) - 2
+            player.hp -= edmg
+            print('\tThe enemy attacks. You lose %i HP.' % edmg)
+            cont()
+            choice = input('')
+            if player.hp <= 0:
+                defeat()
+            else:
+                battle()
         else:
+            print('\tYou do not have enough SP.')
+            cont()
+            choice = input('')
             battle()
     else:
         print('\tYou can not yet use this skill.')
@@ -959,19 +965,25 @@ def skill_01():
 def skill_02():
     clr()
     if player.lvl >= 5:
-        player.sp -= 1
-        print('\tYou use Stun Shot, preventing the enemy from attacking.')
-        pdmg = player.dmg + random.randint(1,3) - 2
-        enemy.hp -= pdmg
-        print('\tThe enemy loses %i HP.' % pdmg)
-        cont()
-        choice = input('')
-        if enemy.hp <= 0:
-            victory()
-        print('\tThe enemy is stunned and can not attack.')
-        cont()
-        choice = input('')
-        battle()
+        if player.sp >= 1:
+            player.sp -= 1
+            print('\tYou use Stun Shot, preventing the enemy from attacking.')
+            pdmg = player.dmg + random.randint(1,3) - 2
+            enemy.hp -= pdmg
+            print('\tThe enemy loses %i HP.' % pdmg)
+            cont()
+            choice = input('')
+            if enemy.hp <= 0:
+                victory()
+            print('\tThe enemy is stunned and can not attack.')
+            cont()
+            choice = input('')
+            battle()
+        else:
+            print('\tYou do not have enough SP.')
+            cont()
+            choice = input('')
+            battle()
     else:
         print('\tYou can not yet use this skill.')
         cont()
