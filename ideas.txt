@@ -20,3 +20,5 @@ rename 'rumours' to 'rumours and advice'? might be nice to implement some tips i
 
 do some anagram stuff for the enigmator?
 more lateral thinking?
+
+put difficulties in separate json file (thus requiring reworking of difficulty implementation in the script)
