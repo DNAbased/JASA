@@ -99,3 +99,19 @@ enigma_06:
 
     explanation:
         'Each number is the square of the corresponding number in the Fibonacci sequence; 1156 is the square of 34, the 8th/9th number of the Fibonacci sequence. 'Quadrata' is italian for 'squared', while the inventor of the Fibonacci sequence (Leonardo da Pisa) was from the italian city of Pisa (hence pisano).'
+
+enigma_07:
+    main:
+        '''
+        Alyson Weer?
+        Gregoire Hermann?
+        '''
+
+    hint:
+        '\tMarvolous.'
+
+    solution:
+        'Harry Potter'
+
+    explanation:
+        'Alyson Weer is an anagram of Ron Weasley, while Gregoire Hermann is an anagram of Hermione Granger, two of the three most important characters in Harry Potter. An anagram of the main antagonists name is used in the second installment of the series. The hint is a mixture of the adjective marvelous and the name Marvolo.'

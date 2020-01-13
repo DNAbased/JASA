@@ -625,6 +625,20 @@ def enigma_06():
         enigma_fail()
 
 
+# eigth enigma; hint: 'Marvolous.'
+def enigma_07():
+    clr()
+    print('''
+        Alyson Weer?
+        Gregoire Hermann?
+        ''')
+    choice = input()
+    if choice in ['Harry Potter', 'harry potter', 'Potter', 'potter']:
+        enigma_win()
+    else:
+        enigma_fail()
+
+
 # correct enigma answer
 def enigma_win():
     clr()
