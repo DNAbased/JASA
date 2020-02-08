@@ -18,7 +18,7 @@ boosters probably should not fill up hp completely --> calculate?
 
 rename 'rumours' to 'rumours and advice'? might be nice to implement some tips in there
 
-enigmator: portal; monty python; v for vendetta; lord of the rings
+enigmator: portal; monty python; v for vendetta; lord of the rings; hexa/octa; base64
 more lateral thinking?
 
 put difficulties in separate json file (thus requiring reworking of difficulty implementation in the script)
