@@ -420,7 +420,7 @@ def enigmator():
         You use your holo projector to access the Enigmator.
         The introduction pops up:
 
-        ENIGMATOR - join the mystery!
+        ENIGMATOR 9K - join the mystery!
 
         Please choose how to proceed:
 
@@ -502,11 +502,11 @@ def enigmator_rules():
         Solving one level immediately unlocks the next.
         
         Please note that Ty Corp thanks you for playing
-        Enigmator. However, Ty Corp can not be held accountable
+        ENIGMATOR 9K. However, Ty Corp can not be held accountable
         for loss of Credits, loss of time, loss of memory, loss
         of orientation, damage to you (physical or psychological),
         damage to your surroundings, damage to others.
-        By playing Enigmator you agree to forfeiting your
+        By playing ENIGMATOR 9K you agree to forfeiting your
         right to litigate.
         ''')
     cont()
