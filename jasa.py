@@ -614,7 +614,7 @@ def enigma_05():
         enigma_fail()
 
 
-# seventh enigma; hint: 'Leonardo might have ordered Pasta quadrata pisano.'
+# seventh enigma; hint: 'Leonardo might have ordered Pasta Quadrata Pisano.'
 def enigma_06():
     clr()
     print('\t0, 1, 1, 4, 9, 25, 64, 169, 441, ?')

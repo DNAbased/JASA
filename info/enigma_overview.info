@@ -92,7 +92,7 @@ enigma_06:
         '\t0, 1, 1, 4, 9, 25, 64, 169, 441, ?'
 
     hint:
-        '\tLeonardo might have ordered Pasta quadrata pisano.'
+        '\tLeonardo might have ordered Pasta Quadrata Pisano.'
 
     solution:
         '1156'
